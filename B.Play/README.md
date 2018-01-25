@@ -1,4 +1,4 @@
-# Play Framework
+# [Play Framework](https://www.playframework.com/documentation/2.6.x/Home)
 
 
 ## Creer un projet sous `Play Framework`
