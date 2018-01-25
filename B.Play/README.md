@@ -8,3 +8,5 @@ $ sbt new playframework/play-scala-seed.g8 --name=<mon ID>
 ```
 
 https://www.playframework.com/documentation/2.6.x/ScalaHome
+
+https://developer.lightbend.com/start/
