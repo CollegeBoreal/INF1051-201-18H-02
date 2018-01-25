@@ -7,4 +7,4 @@
 $ sbt new playframework/play-scala-seed.g8 --name=<mon ID>
 ```
 
-## [Template Engine](https://www.playframework.com/documentation/2.6.x/ScalaTemplates#the-template-engine)
+https://www.playframework.com/documentation/2.6.x/ScalaHome
