@@ -32,7 +32,7 @@ import play.api.http.FileMimeTypes
 import play.api.test.CSRFTokenHelper._
 import org.scalatestplus.play.guice._
 
-* executer les test
+* executer les tests
 
 ```
 $ sbt test
