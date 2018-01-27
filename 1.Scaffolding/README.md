@@ -13,4 +13,8 @@ $ sbt new playframework/play-scala-seed.g8 --name=<mon ID>
 
    de `1.0.4` a `0.13.13`
 
+* uncomment the sbt scaffold plugin
+
+   addSbtPlugin("org.foundweekends.giter8" % "sbt-giter8-scaffold" % "0.10.0")
+
 
