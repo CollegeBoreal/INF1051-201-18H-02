@@ -56,3 +56,6 @@ sbt> testOnly controllers.HomeControllerSpec
     }
 ```
 
+# Projet promettant:
+
+https://github.com/dnvriend/sbt-scaffold-play
