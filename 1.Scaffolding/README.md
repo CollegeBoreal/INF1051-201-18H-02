@@ -16,5 +16,11 @@ $ sbt new playframework/play-scala-seed.g8 --name=<mon ID>
 * enlever le commentaire du `plugin` `sbt scaffold`
 
    addSbtPlugin("org.foundweekends.giter8" % "sbt-giter8-scaffold" % "0.10.0")
+   
+* créer un formulaire sous le CLI `sbt` avec la commande ci-dessous
+
+```
+sbt> g8Scaffold form
+```
 
 
