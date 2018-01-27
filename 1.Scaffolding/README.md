@@ -13,9 +13,9 @@ $ sbt new playframework/play-scala-seed.g8 --name=<mon ID>
 
    de `1.0.4` a `0.13.13`
 
-* enlever le commentaire du `plugin` `sbt scaffold`
+* enlever le commentaire du `plugin` `sbt scaffold` dans le fichier `project/scaffold.sbt`
 
-   addSbtPlugin("org.foundweekends.giter8" % "sbt-giter8-scaffold" % "0.10.0")
+   //addSbtPlugin("org.foundweekends.giter8" % "sbt-giter8-scaffold" % "0.10.0")
    
 * créer un formulaire sous le CLI `sbt` avec la commande ci-dessous
 
@@ -23,4 +23,36 @@ $ sbt new playframework/play-scala-seed.g8 --name=<mon ID>
 sbt> g8Scaffold form
 ```
 
+## Test
+
+* Rajouter les `imports` ci-dessous a chaque fichier `*Spec.scala`
+
+import scala.concurrent.ExecutionContext
+import play.api.http.FileMimeTypes
+import play.api.test.CSRFTokenHelper._
+import org.scalatestplus.play.guice._
+
+* executer les test
+
+```
+$ sbt test
+```
+
+* Executer un seul test
+
+```
+sbt> testOnly controllers.HomeControllerSpec
+```
+
+* remplacer `derp` par le nom de la form comme specifie dans la route (i.e. client)
+
+```Scala
+    "render the index page from the router" in {
+      val request = CSRFTokenHelper.addCSRFToken(FakeRequest(GET, "/derp"))
+      val home = route(app, request).get
+
+      status(home) mustBe OK
+      contentType(home) mustBe Some("text/html")
+    }
+```
 
