@@ -27,10 +27,12 @@ sbt> g8Scaffold form
 
 * Rajouter les `imports` ci-dessous a chaque fichier `*Spec.scala`
 
+```
 import scala.concurrent.ExecutionContext
 import play.api.http.FileMimeTypes
 import play.api.test.CSRFTokenHelper._
 import org.scalatestplus.play.guice._
+```
 
 * executer les tests
 
