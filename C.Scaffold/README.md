@@ -9,9 +9,9 @@ $ sbt new playframework/play-scala-seed.g8 --name=<mon ID>
 
 ## Echaffaudage
 
-* Changer la version de `sbt` dans `project/build.propoerties`
+* Changer la version de `sbt` dans `project/build.properties`
 
-   de `1.0.4` a `0.13.13`
+   de `1.0.4` a `0.13.15`
 
 * enlever le commentaire du `plugin` `sbt scaffold` dans le fichier `project/scaffold.sbt`
 
@@ -27,10 +27,12 @@ sbt> g8Scaffold form
 
 * Rajouter les `imports` ci-dessous a chaque fichier `*Spec.scala`
 
+```
 import scala.concurrent.ExecutionContext
 import play.api.http.FileMimeTypes
 import play.api.test.CSRFTokenHelper._
 import org.scalatestplus.play.guice._
+```
 
 * executer les tests
 
