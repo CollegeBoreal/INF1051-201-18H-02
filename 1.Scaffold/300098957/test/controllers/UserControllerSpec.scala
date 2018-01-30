@@ -15,6 +15,11 @@ import play.api.test.Helpers._
 import play.filters.csrf.CSRF.Token
 import play.filters.csrf.{CSRFConfigProvider, CSRFFilter}
 
+import scala.concurrent.ExecutionContext
+import play.api.http.FileMimeTypes
+import play.api.test.CSRFTokenHelper._
+import org.scalatestplus.play.guice._
+
 /**
  * User form controller specs
  */
@@ -52,7 +57,7 @@ class UserControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
     }
 
     "render the index page from the router" in {
-      val request = CSRFTokenHelper.addCSRFToken(FakeRequest(GET, "/derp"))
+      val request = CSRFTokenHelper.addCSRFToken(FakeRequest(GET, "/user"))
       val home = route(app, request).get
 
       status(home) mustBe OK
