@@ -11,7 +11,7 @@ $ sbt new playframework/play-scala-seed.g8 --name=<mon ID>
 
 * Changer la version de `sbt` dans `project/build.properties`
 
-   de `1.0.4` a `0.13.13`
+   de `1.0.4` a `0.13.15`
 
 * enlever le commentaire du `plugin` `sbt scaffold` dans le fichier `project/scaffold.sbt`
 
