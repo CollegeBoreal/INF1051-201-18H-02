@@ -43,6 +43,7 @@ class Application @Inject() (cache: CacheApi) extends Controller {
   }
 
   def logout = Action {
+    // --TODO implement the logout
     val config = Auth0Config.get()
     Redirect(String.format(
       "https://%s/v2/logout?client_id=%s&returnTo=http://localhost:9000",
