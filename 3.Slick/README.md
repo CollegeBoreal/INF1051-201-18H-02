@@ -28,3 +28,7 @@ $ docker exec -i some-mysql mysql -u root -p${MYSQL_ROOT_PASSWORD} \
 $ docker exec -i some-mysql mysql -u root -p${MYSQL_ROOT_PASSWORD} \
      -e "grant all privileges on etudiants.* to 'etudiants'@'%' identified by 'etudiants_1';"
 ```
+
+```
+$ docker exec -i some-mysql  mysql -u root -p${MYSQL_ROOT_PASSWORD} etudiants < ~/Developer/etudiants.sql
+```
