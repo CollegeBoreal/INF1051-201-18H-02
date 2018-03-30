@@ -39,9 +39,9 @@ class UserController @Inject()(protected val dbConfigProvider: DatabaseConfigPro
     )(User.apply)(User.unapply)
   )
 
-  def index(name: String) = Action.async { implicit request =>
+  def userSearch(name: String) = Action.async { implicit request =>
     val resultingUsers: Future[Seq[User]] = db.run(users.filter(_.lastName === name).result)
-    resultingUsers.map(users => Ok(views.html.user.form(userForm)))
+    resultingUsers.map(users => Ok(views.html.user.list(users)))
   }
 
   def userGet() = Action { implicit request: MessagesRequest[AnyContent] =>

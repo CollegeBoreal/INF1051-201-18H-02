@@ -6,6 +6,7 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 
+GET     /user/:name  controllers.UserController.userSearch(name: String)
 GET     /user        controllers.UserController.userGet
 POST    /user        controllers.UserController.userPost
 
