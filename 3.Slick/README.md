@@ -16,17 +16,17 @@ $ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} -p 
 ```
 
 ```
-$ docker exec -i some-mysql mysql -u root -p${MYSQL_ROOT_PASSWORD} -e "create database etudiants;"
+$ docker exec -i some-mysql mysql -u root -p${MYSQL_ROOT_PASSWORD} -e "create database Transfert;"
 ```
 
 ```
 $ docker exec -i some-mysql mysql -u root -p${MYSQL_ROOT_PASSWORD} \
-     -e "grant all privileges on etudiants.* to 'etudiants'@'localhost' identified by 'etudiants_1';"
+     -e "grant all privileges on Transfert.* to 'etudiants'@'localhost' identified by 'etudiants_1';"
 ```
 
 ```
 $ docker exec -i some-mysql mysql -u root -p${MYSQL_ROOT_PASSWORD} \
-     -e "grant all privileges on etudiants.* to 'etudiants'@'%' identified by 'etudiants_1';"
+     -e "grant all privileges on Transfert.* to 'etudiants'@'%' identified by 'etudiants_1';"
 ```
 
 ```
