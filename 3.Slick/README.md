@@ -14,17 +14,26 @@
 
 3 - Ajouter un héritage permettant la connection JDBC (i.e. objet `db`) `with HasDatabaseConfigProvider[JdbcProfile] `
 
+## Exemple au niveau controlleur
+
 ```Scala
 class UserController @Inject()(
-                                mcc: MessagesControllerComponents
-                               , protected val dbConfigProvider: DatabaseConfigProvider
-                              )
-                              (implicit ec: ExecutionContext)
-                              extends MessagesAbstractController(mcc)
-                              with HasDatabaseConfigProvider[JdbcProfile] {
+      mcc: MessagesControllerComponents
+      , protected val dbConfigProvider: DatabaseConfigProvider
+    )
+    (implicit ec: ExecutionContext)
+    extends MessagesAbstractController(mcc)
+    with HasDatabaseConfigProvider[JdbcProfile] {
 ```
 
+## Exemple au niveau service
 
+```Scala
+class UserService @Inject()
+    (protected val dbConfigProvider: DatabaseConfigProvider)
+    (implicit ec: ExecutionContext)
+    extends HasDatabaseConfigProvider[JdbcProfile] {
+```
 
 ## Installer MySQL
 
