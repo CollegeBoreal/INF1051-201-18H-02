@@ -1,8 +1,23 @@
 # Slick
 
-Creer un environemment Play
+## Play
 
-Integrer [Slick](http://slick.lightbend.com/doc/3.2.2/) avec MySQL
+* Creer un environemment Play (g8 seed)
+
+## Slick
+
+* Integrer [Slick](http://slick.lightbend.com/doc/3.2.2/) avec MySQL
+
+```Scala
+class UserController @Inject()(
+                                mcc: MessagesControllerComponents
+                               , protected val dbConfigProvider: DatabaseConfigProvider
+                              )
+                              (implicit ec: ExecutionContext)
+                              extends MessagesAbstractController(mcc)
+                              with HasDatabaseConfigProvider[JdbcProfile] {
+```
+
 
 
 ## Installer MySQL
