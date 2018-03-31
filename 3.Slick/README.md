@@ -8,6 +8,8 @@
 
 * Integrer [Slick](http://slick.lightbend.com/doc/3.2.2/) avec MySQL
 
+* Integrer avec Play [ScalaDatabase](https://www.playframework.com/documentation/2.6.x/ScalaDatabase)
+
 1 - Injecter `protected val dbConfigProvider: DatabaseConfigProvider` 
 
 2 - Ajouter un `currying` pour permettre une execution asynchrone `(implicit ec: ExecutionContext)`
