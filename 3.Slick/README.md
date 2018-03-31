@@ -14,6 +14,17 @@
 
 3 - Ajouter un héritage permettant la connection JDBC (i.e. objet `db`) `with HasDatabaseConfigProvider[JdbcProfile] `
 
+
+## Import nescessaire
+
+```Scala
+import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider} // Play Sclick  
+
+import slick.jdbc.JdbcProfile
+import slick.jdbc.MySQLProfile.api._ . // MySQL
+import scala.concurrent.{ExecutionContext, Future} // Asynchrone
+```
+
 ## Exemple au niveau controlleur
 
 ```Scala
