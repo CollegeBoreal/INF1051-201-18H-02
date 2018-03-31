@@ -8,6 +8,12 @@
 
 * Integrer [Slick](http://slick.lightbend.com/doc/3.2.2/) avec MySQL
 
+1 - Injecter `protected val dbConfigProvider: DatabaseConfigProvider` 
+
+2 - Ajouter un `currying` pour permettre un code asynchrone `(implicit ec: ExecutionContext)`
+
+3 - Ajouter un heritage permettant la connection JDBC  `with HasDatabaseConfigProvider[JdbcProfile] `
+
 ```Scala
 class UserController @Inject()(
                                 mcc: MessagesControllerComponents
