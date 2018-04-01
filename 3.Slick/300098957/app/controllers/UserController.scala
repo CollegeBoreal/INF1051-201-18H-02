@@ -6,7 +6,6 @@ import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
-
 import slick.jdbc.JdbcProfile
 import models._
 import slick.jdbc.MySQLProfile.api._
@@ -22,10 +21,13 @@ POST    /user        controllers.UserController.userPost
 /**
  * User form controller for Play Scala
  */
-class UserController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider,
+class UserController @Inject()(
                                 mcc: MessagesControllerComponents
-                              )(implicit ec: ExecutionContext)
-  extends MessagesAbstractController(mcc) with HasDatabaseConfigProvider[JdbcProfile] {
+                               , protected val dbConfigProvider: DatabaseConfigProvider
+                              )
+                              (implicit ec: ExecutionContext)
+                              extends MessagesAbstractController(mcc)
+                              with HasDatabaseConfigProvider[JdbcProfile] {
 
   val userForm = Form(
     mapping(
@@ -41,7 +43,9 @@ class UserController @Inject()(protected val dbConfigProvider: DatabaseConfigPro
 
   def userSearch(name: String) = Action.async { implicit request =>
     val resultingUsers: Future[Seq[User]] = db.run(users.filter(_.lastName === name).result)
-    resultingUsers.map(users => Ok(views.html.user.list(users)))
+    resultingUsers.map { users =>
+      Ok(views.html.user.list(users))
+    }
   }
 
   def userGet() = Action { implicit request: MessagesRequest[AnyContent] =>
