@@ -6,16 +6,14 @@ import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
-import slick.jdbc.JdbcProfile
 
-import scala.concurrent.{ExecutionContext, Future}
+import slick.jdbc.JdbcProfile
 import models._
 import slick.jdbc.MySQLProfile.api._
 
 import scala.concurrent.{ExecutionContext, Future}
 
 
-case class UserData(name: String, age: Int)
 
 // NOTE: Add the following to conf/routes to enable compilation of this class:
 /*

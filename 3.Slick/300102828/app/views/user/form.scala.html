@@ -6,7 +6,11 @@
 
   @helper.form(action = routes.UserController.userPost()) {
     @helper.CSRF.formField
-    @helper.inputText(userForm("name"))
-    @helper.inputText(userForm("age"))
+    @helper.inputText(userForm("LastName"))
+    @helper.inputText(userForm("FirstName"))
+    @helper.inputText(userForm("E-mail"))
+    @helper.inputText(userForm("Password"))
+    @helper.inputText(userForm("Tel"))
+    @helper.inputText(userForm("Adress"))
     <input type="submit" value="submit"/>
   }

@@ -11,3 +11,5 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 GET     /user        controllers.UserController.userGet
 POST    /user        controllers.UserController.userPost
+
+GET     /userSearch/:name controllers.UserController.userSearch(name: String)
