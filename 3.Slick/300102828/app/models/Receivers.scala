@@ -12,7 +12,7 @@ case class  Receiver(id: Int
 
 // Definition of the SUPPLIERS table
 class Receivers(tag: Tag) extends Table[Receiver](tag, "Receiver") {
-  def id = column[Int]("id", O.PrimaryKey) // This is the primary key column
+  def id = column[Int]("id", O.PrimaryKey,O.AutoInc) // This is the primary key column
   def lastName = column[String]("LastName")
   def firstName = column[String]("FirstName")
   def tel = column[String]("Tel")

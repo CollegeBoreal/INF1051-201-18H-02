@@ -54,7 +54,9 @@ class ReceiverController @Inject()(protected val dbConfigProvider: DatabaseConfi
       },
       receiverData => {
         /* binding success, you get the actual value. */       
-        /* flashing uses a short lived cookie */ 
+        /* flashing uses a short lived cookie */
+        val receiverId = (receivers returning receivers.map(_.id)) += receiverData
+        db.run(receiverId)
         Redirect(routes.ReceiverController.receiverGet()).flashing("success" -> ("Successful " + receiverData.toString))
       }
     )

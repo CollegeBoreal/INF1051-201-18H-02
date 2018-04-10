@@ -2,11 +2,24 @@
 
 <h1>receiver form</h1>
 
+
+  @if(receiverForm.hasGlobalErrors) {
+    <ul>
+    @for(error <- receiverForm.globalErrors) {
+      <li>@error.format</li>
+    }
+    </ul>
+  }
+
 @request.flash.get("success").getOrElse("")
 
 @helper.form(action = routes.ReceiverController.receiverPost()) {
   @helper.CSRF.formField
-  @helper.inputText(receiverForm("name"))
-  @helper.inputText(receiverForm("age"))
+  @helper.inputText(receiverForm(" id"))
+  @helper.inputText(receiverForm("lastName"))
+  @helper.inputText(receiverForm("firstName"))
+  @helper.inputText(receiverForm("tel"))
+
   <input type="submit" value="submit"/>
 }
+
