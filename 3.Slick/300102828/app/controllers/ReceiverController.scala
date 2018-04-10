@@ -2,15 +2,14 @@ package controllers
 
 import javax.inject._
 
-import akka.actor.TypedActor.Receiver
-import com.sun.istack.internal.tools.DefaultAuthenticator.Receiver
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
-import models._
 import slick.jdbc.MySQLProfile.api._
+
+import models._
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -24,7 +23,7 @@ POST    /receiver        controllers.ReceiverController.receiverPost
 /**
   * User form controller for Play Scala
   */
-class receiverController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider,
+class ReceiverController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider,
                                mcc: MessagesControllerComponents
                               )(implicit ec: ExecutionContext)
   extends MessagesAbstractController(mcc) with HasDatabaseConfigProvider[JdbcProfile] {
@@ -40,7 +39,7 @@ class receiverController @Inject()(protected val dbConfigProvider: DatabaseConfi
 
   def receiverSearch(name: String) = Action.async { implicit request =>
     val resultingUsers: Future[Seq[Receiver]] = db.run(receivers.filter(_.lastName === name).result)
-    resultingUsers.map(users => Ok(views.html.receiver.list(receivers)))
+    resultingUsers.map(x =>Ok(views.html.receiver.list(x)))
   }
 
   def receiverGet() = Action { implicit request: MessagesRequest[AnyContent] =>

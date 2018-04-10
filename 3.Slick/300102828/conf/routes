@@ -13,3 +13,13 @@ GET     /user        controllers.UserController.userGet
 POST    /user        controllers.UserController.userPost
 
 GET     /userSearch/:name controllers.UserController.userSearch(name: String)
+
+GET     /partner        controllers.PartnerController.partnerGet
+POST    /partner        controllers.PartnerController.partnerPost
+
+
+GET     /receiver        controllers.ReceiverController.receiverGet
+POST    /receiver        controllers.ReceiverController.receiverPost
+
+GET     /transfert        controllers.TransfertController.transfertGet
+POST    /transfert        controllers.TransfertController.transfertPost
