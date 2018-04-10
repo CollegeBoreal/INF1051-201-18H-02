@@ -15,7 +15,7 @@
 
 @helper.form(action = routes.ReceiverController.receiverPost()) {
   @helper.CSRF.formField
-  @helper.inputText(receiverForm(" id"))
+  @helper.inputText(receiverForm("id"))
   @helper.inputText(receiverForm("lastName"))
   @helper.inputText(receiverForm("firstName"))
   @helper.inputText(receiverForm("tel"))
