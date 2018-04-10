@@ -1,0 +1,12 @@
+@(receiverForm: Form[ReceiverData])(implicit request: MessagesRequestHeader)
+
+<h1>receiver form</h1>
+
+@request.flash.get("success").getOrElse("")
+
+@helper.form(action = routes.ReceiverController.receiverPost()) {
+  @helper.CSRF.formField
+  @helper.inputText(receiverForm("name"))
+  @helper.inputText(receiverForm("age"))
+  <input type="submit" value="submit"/>
+}
