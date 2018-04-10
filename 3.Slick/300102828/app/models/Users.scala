@@ -15,7 +15,7 @@ case class  User(id: Int
 
 // Definition of the SUPPLIERS table
 class Users(tag: Tag) extends Table[User](tag, "User") {
-  def id = column[Int]("idUser", O.PrimaryKey) // This is the primary key column
+  def id = column[Int]("idUser", O.PrimaryKey, O.AutoInc) // This is the primary key column
   def lastName = column[String]("LastName")
   def firstName = column[String]("FirstName")
   def email = column[String]("E-mail")
