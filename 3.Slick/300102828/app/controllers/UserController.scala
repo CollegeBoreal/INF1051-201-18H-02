@@ -52,14 +52,19 @@ class UserController @Inject()(protected val dbConfigProvider: DatabaseConfigPro
   }
 
   def userPost() = Action { implicit request: MessagesRequest[AnyContent] =>
+
     userForm.bindFromRequest.fold(
       formWithErrors => {
+
         // binding failure, you retrieve the form containing errors:
         BadRequest(views.html.user.form(formWithErrors))
       },
       userData => {
         /* binding success, you get the actual value. */
         /* flashing uses a short lived cookie */
+//        val resultingUsers: Future[Int] = db.run(users += userData)
+//                throw new Exception(""+1)
+db.run(users += User(5,"mamoud","sow","code@yahoo.com","sow","234-664'000","234 de"))
         Redirect(routes.UserController.userGet()).flashing("success" -> ("Successful " + userData.toString))
       }
     )
