@@ -1,0 +1,5 @@
+@(receiver: Seq[User])
+
+@for(receiver <- receivers) {
+    @receiver.lastName <br/>
+}

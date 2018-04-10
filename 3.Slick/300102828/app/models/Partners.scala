@@ -14,8 +14,8 @@ case class  Partners(id: Int
 // Definition of the SUPPLIERS table
 class Partners(tag: Tag) extends Table[Partners](tag, "Partner") {
   def id = column[Int]("id", O.PrimaryKey) // This is the primary key column
-  def lastName = column[String]("Name")
-  def firstName = column[String]("Location")
+  def Name = column[String]("Name")
+  def Location = column[String]("Location")
   def email = column[String]("City")
   def tel = column[String]("Tel")
 
