@@ -33,9 +33,9 @@ class TransfertController @Inject()(protected val dbConfigProvider: DatabaseConf
 
   val transfertForm = Form(
     mapping(
-      "idTransfert" -> number,
-      "Date_Transfert" -> text,
-       "Amount" -> text
+      "id" -> number,
+      "date_Transfert" -> text,
+       "amount" -> text
 
   )(Transfert.apply)(Transfert.unapply)
   )

@@ -11,13 +11,13 @@ case class  Transfert(id: Int
 
 // Definition of the SUPPLIERS table
 class Transferts(tag: Tag) extends Table[Transfert](tag, "Transfert") {
-  def id = column[Int]("id", O.PrimaryKey) // This is the primary key column
+  def id = column[Int]("idTransfert", O.PrimaryKey,O.AutoInc) // This is the primary key column
   def date_transfert = column[String]("Date_Transfert")
   def amount = column[String]("Amount")
 
 
 
   // Every table needs a * projection with the same type as the table's type parameter
-  def * = (id, date_transfert, amount) <> (Partner.tupled, Partner.unapply)
+  def * = (id,date_transfert,amount) <> (Transfert.tupled, Transfert.unapply)
 }
 
