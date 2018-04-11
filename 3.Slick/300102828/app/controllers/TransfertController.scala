@@ -1,30 +1,50 @@
 package controllers
 
 import javax.inject._
-import play.api.mvc._
 
+import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
+import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 
-case class TransfertData(name: String, age: Int)
+import slick.jdbc.JdbcProfile
+import models._
+import slick.jdbc.MySQLProfile.api._
+
+import scala.concurrent.{ExecutionContext, Future}
+
+
 
 // NOTE: Add the following to conf/routes to enable compilation of this class:
 /*
 GET     /transfert        controllers.TransfertController.transfertGet
 POST    /transfert        controllers.TransfertController.transfertPost
+
 */
 
 /**
  * Transfert form controller for Play Scala
  */
-class TransfertController @Inject()(mcc: MessagesControllerComponents) extends MessagesAbstractController(mcc) {
+class TransfertController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider,
+                               mcc: MessagesControllerComponents
+                              )(implicit ec: ExecutionContext)
+  extends MessagesAbstractController(mcc) with HasDatabaseConfigProvider[JdbcProfile] {
+
 
   val transfertForm = Form(
     mapping(
-      "name" -> text,
-      "age" -> number
-    )(TransfertData.apply)(TransfertData.unapply)
+      "idTransfert" -> number,
+      "Date_Transfert" -> text,
+       "Amount" -> text
+
+  )(Transfert.apply)(Transfert.unapply)
   )
+
+  def transfertSearch(name: String) = Action.async { implicit request =>
+    val resultingTransferts: Future[Seq[Transfert]] = db.run(transferts.filter(_.date_transfert === name).result)
+    resultingTransferts.map(transferts =>Ok(views.html.transfert.list(transferts)))
+  }
+
 
   def transfertGet() = Action { implicit request: MessagesRequest[AnyContent] =>
     Ok(views.html.transfert.form(transfertForm))
@@ -38,7 +58,9 @@ class TransfertController @Inject()(mcc: MessagesControllerComponents) extends M
       },
       transfertData => {
         /* binding success, you get the actual value. */       
-        /* flashing uses a short lived cookie */ 
+        /* flashing uses a short lived cookie */
+        val transfertId = (transferts returning transferts.map(_.id)) += transfertData
+        db.run(transfertId)
         Redirect(routes.TransfertController.transfertGet()).flashing("success" -> ("Successful " + transfertData.toString))
       }
     )

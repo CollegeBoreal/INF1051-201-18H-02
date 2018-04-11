@@ -38,8 +38,8 @@ class ReceiverController @Inject()(protected val dbConfigProvider: DatabaseConfi
   )
 
   def receiverSearch(name: String) = Action.async { implicit request =>
-    val resultingUsers: Future[Seq[Receiver]] = db.run(receivers.filter(_.lastName === name).result)
-    resultingUsers.map(x =>Ok(views.html.receiver.list(x)))
+    val resultingReceivers: Future[Seq[Receiver]] = db.run(receivers.filter(_.lastName === name).result)
+    resultingReceivers.map(x =>Ok(views.html.receiver.list(x)))
   }
 
   def receiverGet() = Action { implicit request: MessagesRequest[AnyContent] =>

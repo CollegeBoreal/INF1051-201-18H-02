@@ -59,7 +59,10 @@ class PartnerController @Inject()(protected val dbConfigProvider: DatabaseConfig
       partnerData => {
 
         /* binding success, you get the actual value. */       
-        /* flashing uses a short lived cookie */ 
+        /* flashing uses a short lived cookie */
+
+        val partnerId = (partners returning partners.map(_.id)) += partnerData
+        db.run(partnerId)
         Redirect(routes.PartnerController.partnerGet()).flashing("success" -> ("Successful " + partnerData.toString))
       }
     )
