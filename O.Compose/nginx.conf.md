@@ -21,7 +21,7 @@ http {
 
   upstream my-backend {
      # The DNS name follows Docker Service convention
-     server localhost:9000;
+     server trfwebapp:9000;
   }
 
   server {
