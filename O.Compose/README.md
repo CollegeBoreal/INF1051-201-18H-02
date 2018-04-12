@@ -42,4 +42,13 @@ $ sbt docker:publishLocal
 
 * copy the [docker-compose.yml](./docker-compose.yml.md) content to the `docker-compose.yml` file of your project root directory
 
+Build the orchestration module
 
+```
+$ docker-compose build
+```
+
+Launch the orchestration
+```
+$ docker-compose up -d
+```
