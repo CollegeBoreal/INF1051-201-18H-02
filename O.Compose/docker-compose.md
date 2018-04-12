@@ -1,28 +1,30 @@
+```
 version: '2'
 
 services:
-   cfmweb:
+   trfweb:
      build: ./nginx
-     container_name: cfmweb
+     container_name: trfweb
      ports:
        - "80:80"
        - "443:443"
      depends_on:
        - cfmwebapp
 
-   cfmwebapp:
-     image: artists:0.1.0-SNAPSHOT
-     container_name: cfmwebapp
+   trfwebapp:
+     image: 300098957:0.1.0-SNAPSHOT
+     container_name: trfwebapp
      expose:
        - "9000"
      depends_on:
        - cfmdb
 
-   cfmdb:
+   trfdb:
      image: mysql
-     container_name: cfmdb
+     container_name: trfdb
      environment:
       - MYSQL_ROOT_PASSWORD=password
      # Open Port for testing
      # ports:
      #  - "3306:3306"
+```
