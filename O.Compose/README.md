@@ -20,7 +20,7 @@ $ mkdir -p nginx/conf
 
 * copy the [nginx.conf](./nginx.conf.md) content to the `nginx/conf/nginx.conf` file
 
-* Edit the Dockerfile file 
+* Edit the `nginx/Dockerfile` file 
 
 * copy the [Dockerfile](./Dockerfile.md) content to the 'nginx/Dockerfile`
 
