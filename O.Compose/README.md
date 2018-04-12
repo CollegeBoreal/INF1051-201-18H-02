@@ -20,6 +20,10 @@ $ mkdir -p nginx/conf
 
 * copy the [nginx.conf](./nginx.conf.md) content to the `nginx/conf/nginx.conf` file
 
+* Edit the Dockerfile file 
+
+* copy the [Dockerfile](./Dockerfile.md) content to the 'nginx/Dockerfile`
+
 ## create your Play Framework backend
 
 ```shell
