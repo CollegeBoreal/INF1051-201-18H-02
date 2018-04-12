@@ -1,3 +1,4 @@
+```json
 worker_processes  1;
 
 events {
@@ -55,3 +56,4 @@ http {
     }
   }
 }
+```
