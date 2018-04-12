@@ -30,10 +30,18 @@ $ mkdir -p nginx/conf
 $ sbt new playframework/play-scala-seed.g8 --name=backend
 ```
 
-to create a docker image run:
+* Set the Play secret key
+
+```shell
+$ cd backend
+$ sbt playGenerateSecret
+```
+
+* put the secret key in `conf/application.conf`
+
+* to create a docker image run:
 
 ```
-$ cd backend
 $ sbt dist
 $ sbt docker:publishLocal
 ```
