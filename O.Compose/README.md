@@ -34,6 +34,7 @@ to create a docker image run:
 
 ```
 $ cd backend
+$ sbt dist
 $ sbt docker:publishLocal
 ```
 
