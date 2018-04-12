@@ -14,4 +14,15 @@
 $ sbt new playframework/play-scala-seed.g8 --name=backend
 ```
 
+to create a docker image run:
+
+```
+$ cd backend
+$ sbt docker:publishLocal
+```
+
+## Create your orchestration file
+
+* copy the [docker-compose.yml](./docker-compose.yml.md) content to the `docker-compose.yml` file of your project root directory
+
 
