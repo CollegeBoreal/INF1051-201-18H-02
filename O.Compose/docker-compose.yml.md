@@ -12,7 +12,7 @@ services:
        - trfwebapp
 
    trfwebapp:
-     image: backend:0.1.0-SNAPSHOT
+     image: backend:1.0-SNAPSHOT
      container_name: trfwebapp
      expose:
        - "9000"
