@@ -10,9 +10,13 @@ $ mkdir MyID; cd MyID
 
 ## Frontend
 
-* Create a nginx `directory`
+* Create a `nginx` and `nginx/conf` directories
 
-* in the `nginx` directory: create a configuration file conf/nginx.conf
+```shell
+$ mkdir -p nginx/conf
+```
+
+* Edit the configuration file `nginx/conf/nginx.conf`
 
 * copy the [nginx.conf](./nginx.conf.md) content to the `nginx.conf` file
 
