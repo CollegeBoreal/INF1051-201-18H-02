@@ -1,5 +1,13 @@
 # Compose Install
 
+## Create own directory
+
+Note: MyID with your student ID
+
+```
+$ mkdir MyID; cd MyID 
+```
+
 ## Frontend
 
 * Create a nginx `directory`
