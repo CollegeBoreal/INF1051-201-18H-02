@@ -18,7 +18,7 @@ $ mkdir -p nginx/conf
 
 * Edit the configuration file `nginx/conf/nginx.conf`
 
-* copy the [nginx.conf](./nginx.conf.md) content to the `nginx.conf` file
+* copy the [nginx.conf](./nginx.conf.md) content to the `nginx/conf/nginx.conf` file
 
 ## create your Play Framework backend
 
