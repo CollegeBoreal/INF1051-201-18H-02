@@ -9,7 +9,7 @@ services:
        - "80:80"
        - "443:443"
      depends_on:
-       - cfmwebapp
+       - trfwebapp
 
    trfwebapp:
      image: 300098957:0.1.0-SNAPSHOT
@@ -17,7 +17,7 @@ services:
      expose:
        - "9000"
      depends_on:
-       - cfmdb
+       - trfdb
 
    trfdb:
      image: mysql
