@@ -6,7 +6,7 @@
 
 * in the `nginx` directory: create a configuration file conf/nginx.conf
 
-* copy the [nginx.conf](./nginx.conf.md) to the `nginx.conf` file
+* copy the [nginx.conf](./nginx.conf.md) content to the `nginx.conf` file
 
 ## create your Play Framework backend
 
