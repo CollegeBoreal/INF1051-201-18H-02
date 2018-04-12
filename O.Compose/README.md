@@ -39,6 +39,8 @@ $ sbt playGenerateSecret
 
 * put the secret key in `conf/application.conf`
 
+play.crypto.secret="IN_PRODUCTION_CHANGE_THIS_TO_A_LONG_RANDOM_STRING"
+
 * to create a docker image run:
 
 ```
