@@ -1,15 +1,17 @@
 package controllers
 
 import javax.inject._
+import java.sql.Date
+import java.time.LocalDate
 
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
-
 import slick.jdbc.JdbcProfile
 import models._
 import slick.jdbc.MySQLProfile.api._
+import play.api.data.format.Formats._
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -31,16 +33,15 @@ class TransfertController @Inject()(protected val dbConfigProvider: DatabaseConf
   extends MessagesAbstractController(mcc) with HasDatabaseConfigProvider[JdbcProfile] {
 
 
-  val transfertForm = Form(
+  val transfertForm: Form[Transfert]  = Form(
     mapping(
       "id" -> number,
-      "date_Transfert" -> text,
-       "amount" -> text
-
+      "date_Transfert" -> of[LocalDate],
+       "amount" -> of[Double]
   )(Transfert.apply)(Transfert.unapply)
   )
 
-  def transfertSearch(name: String) = Action.async { implicit request =>
+  def transfertSearch(name: LocalDate) = Action.async { implicit request =>
     val resultingTransferts: Future[Seq[Transfert]] = db.run(transferts.filter(_.date_transfert === name).result)
     resultingTransferts.map(transferts =>Ok(views.html.transfert.list(transferts)))
   }

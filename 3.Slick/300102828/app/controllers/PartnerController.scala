@@ -52,7 +52,7 @@ class PartnerController @Inject()(protected val dbConfigProvider: DatabaseConfig
   def partnerPost() = Action { implicit request: MessagesRequest[AnyContent] =>
     partnerForm.bindFromRequest.fold(
       formWithErrors => {
-        throw new Exception(""+1)
+//        throw new Exception(""+1)
         // binding failure, you retrieve the form containing errors:
         BadRequest(views.html.partner.form(formWithErrors))
       },
