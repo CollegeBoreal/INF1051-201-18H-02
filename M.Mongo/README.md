@@ -23,7 +23,7 @@ https://www.playframework.com/documentation/2.6.x/ModuleDirectory#MongoDB-Reacti
 
 ```shell
 $ echo "resolvers += \"Typesafe repository releases\" at \"http://repo.typesafe.com/typesafe/releases/\"" \
-echo "libraryDependencies += \"org.reactivemongo\" %% \"reactivemongo\" % \"0.11.14\"" > build-mongo.sbt
+"libraryDependencies += \"org.reactivemongo\" %% \"reactivemongo\" % \"0.11.14\"" > build-mongo.sbt
 ```
 
 Documentation:
