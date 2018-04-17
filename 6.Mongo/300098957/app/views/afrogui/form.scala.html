@@ -1,0 +1,5 @@
+@(afroguiForm: Form[AfroguiData])(implicit request: MessagesRequestHeader)
+
+<h1>afrogui form</h1>
+
+@request.flash.get("success").getOrElse("")
