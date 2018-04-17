@@ -22,12 +22,7 @@ https://www.playframework.com/documentation/2.6.x/ModuleDirectory#MongoDB-Reacti
 * Ajouter reactivemongo au fichier librairie . (Note: you can copy and paste the command in your terminal)
 
 ```shell
-$ echo "resolvers += \"Typesafe repository releases\" at \"http://repo.typesafe.com/typesafe/releases/\"" \
-  > build-mongo.sbt
-```
-
-```shell
-$ echo "libraryDependencies += \"org.reactivemongo\" %% \"reactivemongo\" % \"0.11.14\"" >> build-mongo.sbt
+$ echo "libraryDependencies += \"org.reactivemongo\" %% \"reactivemongo\" % \"0.13.0\"" > build-mongo.sbt
 ```
 
 Documentation:
