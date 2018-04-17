@@ -49,6 +49,6 @@ $ echo "play.modules.enabled += \"play.modules.reactivemongo.ReactiveMongoModule
 * Ajouter mongo a conf/application.conf
 
 ```
-$ echo "include \"mongo.conf\"" > conf/application.conf
+$ echo "\n include \"mongo.conf\"" >> conf/application.conf
 ```
 
