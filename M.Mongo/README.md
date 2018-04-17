@@ -25,5 +25,9 @@ https://www.playframework.com/documentation/2.6.x/ModuleDirectory#MongoDB-Reacti
 $ echo "libraryDependencies += \"org.reactivemongo\" %% \"reactivemongo\" % \"0.11.14\"" > build-mongo.sbt
 ```
 
+Documentation:
+
+http://reactivemongo.org/releases/0.11/documentation/
+
 
 
