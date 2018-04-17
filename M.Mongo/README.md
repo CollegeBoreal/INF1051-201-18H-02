@@ -57,3 +57,20 @@ $ printf "\ninclude \"mongo.conf\"" >> conf/application.conf
 ```
 $ echo "mongodb.uri = \"mongodb://localhost:27017/Transfert\"" >> conf/mongo.conf
 ```
+
+## Coder le controlleur
+
+```scala
+import javax.inject.Inject
+
+import play.api.mvc.{ AbstractController, ControllerComponents }
+import play.modules.reactivemongo._
+
+class MyController @Inject() (
+  components: ControllerComponents,
+  val reactiveMongoApi: ReactiveMongoApi
+) extends AbstractController(components)
+  with MongoController with ReactiveMongoComponents {
+...
+}
+```
