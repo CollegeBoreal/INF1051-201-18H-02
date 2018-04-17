@@ -1,0 +1,12 @@
+@(partnerForm: Form[PartnerData])(implicit request: MessagesRequestHeader)
+
+<h1>partner form</h1>
+
+@request.flash.get("success").getOrElse("")
+
+@helper.form(action = routes.PartnerController.partnerPost()) {
+  @helper.CSRF.formField
+  @helper.inputText(partnerForm("name"))
+  @helper.inputText(partnerForm("age"))
+  <input type="submit" value="submit"/>
+}
