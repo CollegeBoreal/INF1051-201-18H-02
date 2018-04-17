@@ -27,7 +27,11 @@ $ echo "libraryDependencies += \"org.reactivemongo\" %% \"reactivemongo\" % \"0.
 
 Documentation:
 
-http://reactivemongo.org/releases/0.11/documentation/
+http://reactivemongo.org/releases/0.1x/documentation/index.html
+
+## Interation a Play
+
+http://reactivemongo.org/releases/0.1x/documentation/tutorial/play.html
 
 
 
