@@ -43,7 +43,7 @@ $ echo "libraryDependencies += \"org.reactivemongo\" %% \"play2-reactivemongo\" 
 * Creer le fichier mongo.conf 
 
 ```shell
-$ echo "play.modules.enabled += \"play.modules.reactivemongo.ReactiveMongoModule\" > conf/mongo.conf
+$ echo "play.modules.enabled += \"play.modules.reactivemongo.ReactiveMongoModule\"" > conf/mongo.conf
 ```
 
 * Ajouter mongo a conf/application.conf
