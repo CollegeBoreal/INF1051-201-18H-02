@@ -55,5 +55,5 @@ $ printf "\ninclude \"mongo.conf\"" >> conf/application.conf
 ## Configurer l'URL de connection
 
 ```
-$ echo "mongodb.uri = \"mongodb://localhost:27017/Transfert\"" >> conf/mono.conf
+$ echo "mongodb.uri = \"mongodb://localhost:27017/Transfert\"" >> conf/mongo.conf
 ```
