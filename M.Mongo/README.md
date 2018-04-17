@@ -33,5 +33,7 @@ http://reactivemongo.org/releases/0.1x/documentation/index.html
 
 http://reactivemongo.org/releases/0.1x/documentation/tutorial/play.html
 
-
+```shell
+$ echo "libraryDependencies += \"org.reactivemongo\" %% \"play2-reactivemongo\" % \"0.13.0-play26\"" > build-mongo.sbt
+```
 
