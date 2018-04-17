@@ -17,5 +17,13 @@ docker exec -i some-mongo  mongoexport --db Transfert --collection Adresse --typ
 
 https://www.playframework.com/documentation/2.6.x/ModuleDirectory#MongoDB-ReactiveMongo-Plugin-(Scala)
 
+### Ajouter la librairie
+
+* Ajouter reactivemongog au fichier librairie . (Note: you can copy and paste the command in your terminal)
+
+```shell
+$ echo "libraryDependencies += \"org.reactivemongo\" %% \"reactivemongo\" % \"0.11.14\"" > build-reactivemongo.sbt
+```
+
 
 
