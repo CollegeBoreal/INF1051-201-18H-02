@@ -29,12 +29,26 @@ Documentation:
 
 http://reactivemongo.org/releases/0.1x/documentation/index.html
 
-## Interation a Play
+## Integration a Play
 
 http://reactivemongo.org/releases/0.1x/documentation/tutorial/play.html
 
 ```shell
 $ echo "libraryDependencies += \"org.reactivemongo\" %% \"play2-reactivemongo\" % \"0.13.0-play26\"" \
   >> build-mongo.sbt
+```
+
+## Ajouter le module a Application.conf
+
+* Creer le fichier mongo.conf 
+
+```shell
+$ echo "play.modules.enabled += \"play.modules.reactivemongo.ReactiveMongoModule\" > conf/mongo.conf
+```
+
+* Ajouter mongo a conf/application.conf
+
+```
+import [mongo]
 ```
 
