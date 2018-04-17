@@ -52,3 +52,8 @@ $ echo "play.modules.enabled += \"play.modules.reactivemongo.ReactiveMongoModule
 $ printf "\ninclude \"mongo.conf\"" >> conf/application.conf
 ```
 
+## Configurer l'URL de connection
+
+```
+$ echo "mongodb.uri = \"mongodb://localhost:27017/Transfert\"" >> conf/mono.conf
+```
