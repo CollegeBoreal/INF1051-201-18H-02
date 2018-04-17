@@ -6,14 +6,14 @@ version: '2'
 
 services:
 
-  gpsdb:
+  infdb:
      image: mysql
      environment:
       - MYSQL_ROOT_PASSWORD=password
      ports:
        - "3306:3306"
 
-  gpsspark:
+  infspark:
      build: ./data
      ports:
        - "8088:8088"
@@ -23,5 +23,5 @@ services:
        - "/etc/bootstrap.sh"
        - -d
      depends_on:
-       - gpsdb
+       - infdb
 ```
