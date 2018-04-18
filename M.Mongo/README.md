@@ -3,15 +3,25 @@
 
 ## Creer une instance sous docker
 
+
+* Un volume partagé sera crée
+
 ```
-docker run --name some-mongo -p27017:27017 -d mongo 
+docker run --name some-mongo -p27017:27017 -v "$(pwd)":/data -d mongo 
 ```
 
-Exporter une collection
+Importer des donnees (a travers un volume)
+
+```shell
+docker exec -i some-mongo mongoimport -d INF1069 -c departments --drop --type csv --file /data/Semaine01/departments.csv --headerline
+```
+
+Exporter une collection sans l'intermediare d'un volume
 
 ```
 docker exec -i some-mongo  mongoexport --db Transfert --collection Adresse --type=csv --fields _id,name,prenom 2>/tmp/mongoexport.err  > info.csv
 ```
+
 
 ## Utiliser le Module ReactiveMongo
 
