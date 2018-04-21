@@ -9,9 +9,9 @@ scalaVersion := "2.12.4"
 
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
-libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo" % "0.1x"
-)
+
+  
+
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.example.controllers._"
 

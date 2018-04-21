@@ -4,9 +4,5 @@
 
 @request.flash.get("success").getOrElse("")
 
-@helper.form(action = routes.AfroguiController.afroguiPost()) {
-  @helper.CSRF.formField
-  @helper.inputText(afroguiForm("name"))
-  @helper.inputText(afroguiForm("age"))
-  <input type="submit" value="submit"/>
-}
+
+
