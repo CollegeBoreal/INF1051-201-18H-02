@@ -1,5 +1,7 @@
 import java.sql.Date
 import java.time.LocalDate
+import slick.jdbc.MySQLProfile.api._
+import slick.lifted.TableQuery
 package object models {
 
   implicit val localDateToDate = MappedColumnType.base[LocalDate, Date](
