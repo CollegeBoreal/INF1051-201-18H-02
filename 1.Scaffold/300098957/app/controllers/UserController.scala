@@ -1,10 +1,13 @@
 package controllers
 
 import javax.inject._
-import play.api.mvc._
 
+import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
+import play.api.libs.json.{JsError, JsValue, Json, OFormat}
+
+import scala.concurrent.Future
 
 case class UserData(name: String, age: Int)
 
@@ -43,4 +46,20 @@ class UserController @Inject()(mcc: MessagesControllerComponents) extends Messag
       }
     )
   }
+
+  implicit val userDataFormat: OFormat[UserData] = Json.format[UserData]
+
+  def upsert(): Action[JsValue] = Action.async(parse.json) { request =>
+    Future.successful {
+      request.body.validate[UserData].fold(
+        jsonWithErrors => {
+          BadRequest(Json.obj("status" -> "KO", "message" -> JsError.toJson(jsonWithErrors)))
+        },
+        userData => {
+          Ok(Json.obj("status" -> "OK", "message" -> ("User '" + userData.name + "' saved.")))
+        }
+      )
+    }
+  }
+
 }
