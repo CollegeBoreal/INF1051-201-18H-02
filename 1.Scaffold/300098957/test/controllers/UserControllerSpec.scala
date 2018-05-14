@@ -1,17 +1,15 @@
 package controllers
 
 import javax.inject._
+
 import play.api._
 import play.api.mvc._
 import play.api.i18n._
-
 import play.api.data._
 import play.api.data.Forms._
-
 import org.scalatestplus.play._
 import play.api.test._
 import play.api.test.Helpers._
-
 import play.filters.csrf.CSRF.Token
 import play.filters.csrf.{CSRFConfigProvider, CSRFFilter}
 
@@ -19,6 +17,7 @@ import scala.concurrent.ExecutionContext
 import play.api.http.FileMimeTypes
 import play.api.test.CSRFTokenHelper._
 import org.scalatestplus.play.guice._
+import play.api.libs.json.Json
 
 /**
  * User form controller specs
@@ -74,6 +73,20 @@ class UserControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
       val home = route(app, request).get
 
       status(home) mustBe SEE_OTHER
+    }
+  }
+
+  "UserController POST" should {
+    "parse a JSON body" in {
+      val request = {
+        FakeRequest(PUT, "/api/user/upsert")
+          .withJsonBody(Json.parse("""{"name":"Joe","age": 10}"""))
+      }
+
+      val result = route(app, request).get
+
+      status(result) mustEqual OK
+      contentAsString(result) mustEqual """{"status":"OK","message":"User 'Joe' saved."}"""
     }
   }
 
