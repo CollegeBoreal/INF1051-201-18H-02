@@ -50,14 +50,14 @@ class UserController @Inject()(mcc: MessagesControllerComponents) extends Messag
 
   implicit val userDataFormat: OFormat[UserData] = Json.format[UserData]
 
-  def upsert(): Action[JsValue] = Action.async(parse.json) { request =>
+  def upsert(number: Int): Action[JsValue] = Action.async(parse.json) { request =>
     Future {
       request.body.validate[UserData].fold(
         jsonWithErrors => {
           BadRequest(Json.obj("status" -> "KO", "message" -> JsError.toJson(jsonWithErrors)))
         },
         userData => {
-          Ok(Json.obj("status" -> "OK", "message" -> ("User '" + userData.name + "' saved.")))
+          Ok(Json.obj("status" -> "OK", "message" -> ("User '" + userData.name + s"' -- $number.")))
         }
       )
     }
