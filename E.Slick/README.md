@@ -1,8 +1,14 @@
 # Slick
 
+##
+
+Livres
+
+https://underscore.io/training/courses/essential-slick/
+
 ## Play
 
-* Creer un environemment Play (g8 seed)
+* Creer un environnement Play (g8 seed)
 
 ## Slick
 
