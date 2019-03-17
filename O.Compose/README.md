@@ -62,3 +62,7 @@ Launch the orchestration
 ```
 $ docker-compose up -d
 ```
+
+# References:
+
+https://www.playframework.com/documentation/2.7.x/HTTPServer#Set-up-with-nginx
